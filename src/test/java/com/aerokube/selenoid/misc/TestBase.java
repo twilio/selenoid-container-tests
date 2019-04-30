@@ -62,7 +62,11 @@ public abstract class TestBase {
 
     protected String getHostName() {
         try {
-            return InetAddress.getLocalHost().getHostName();
+            if(System.getProperty("os.name").startsWith("Mac")) {
+                return InetAddress.getLocalHost().getHostAddress();
+            } else {
+                return InetAddress.getLocalHost().getHostName();
+            }
         } catch (UnknownHostException e) {
             LOG.error("Failed to determine host name");
             return "localhost";
