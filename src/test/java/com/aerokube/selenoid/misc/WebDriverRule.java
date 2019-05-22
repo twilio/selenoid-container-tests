@@ -23,6 +23,7 @@ import java.util.function.Function;
 public class WebDriverRule implements TestRule {
     
     private static final TestProperties PROPERTIES = PropertyLoader.newInstance().populate(TestProperties.class);
+    private static final String CHROME = "chrome";
     private static final String OPERA = "opera";
     
     private WebDriver driver;
@@ -62,7 +63,7 @@ public class WebDriverRule implements TestRule {
     private DesiredCapabilities getDesiredCapabilities() {
         DesiredCapabilities caps = new DesiredCapabilities(PROPERTIES.getBrowserName(), PROPERTIES.getBrowserVersion(), Platform.LINUX);
         caps.setCapability("screenResolution", "1280x1024x24");
-        if(System.getProperty("os.name").startsWith("Mac")) {
+        if (CHROME.equals(PROPERTIES.getBrowserName())) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("no-sandbox");
             caps.setCapability(ChromeOptions.CAPABILITY, options);
