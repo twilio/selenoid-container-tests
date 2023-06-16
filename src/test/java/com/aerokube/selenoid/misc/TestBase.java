@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -41,11 +42,11 @@ public abstract class TestBase {
     }
 
     public void waitUntilElementIsPresent(By by) {
-        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.presenceOfElementLocated(by));
+        new WebDriverWait(getDriver(), Duration.ofSeconds(5)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     public String getPageTitle() {
-        new WebDriverWait(getDriver(), 5).until(ExpectedConditions.not(ExpectedConditions.titleIs("")));
+        new WebDriverWait(getDriver(), Duration.ofSeconds(5)).until(ExpectedConditions.not(ExpectedConditions.titleIs("")));
         return getDriver().getTitle();
     }
 
