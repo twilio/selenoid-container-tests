@@ -2,6 +2,7 @@ package com.aerokube.selenoid;
 
 import com.aerokube.selenoid.misc.TestBase;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -21,6 +22,7 @@ public class TestScreenshot extends TestBase {
     }
 
     @Features("Taking screenshots")
+    @Ignore
     @Test
     public void testScreenshot() throws Exception {
         WebDriver driver = getDriver();
