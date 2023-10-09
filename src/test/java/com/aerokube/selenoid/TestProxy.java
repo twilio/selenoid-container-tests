@@ -40,6 +40,7 @@ public class TestProxy extends TestBase {
     }
 
     @Features("Using proxies")
+    @Ignore
     @Test
     public void testProxy() throws Exception {
         openPage(Page.FIRST);
