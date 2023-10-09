@@ -5,9 +5,7 @@ import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.Augmenter;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import ru.qatools.properties.PropertyLoader;
@@ -15,6 +13,8 @@ import ru.yandex.qatools.allure.annotations.Attachment;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -60,28 +60,24 @@ public class WebDriverRule implements TestRule {
     }
 
     private MutableCapabilities getDesiredCapabilities() {
+        Map<String, Object> selenoidOptions = new HashMap<>();
+        selenoidOptions.put("screenResolution", "1280x1024x24");
+ 
         switch (PROPERTIES.getBrowserName()) {
             case CHROME:
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("no-sandbox");
-                chromeOptions.setCapability("screenResolution", "1280x1024x24");
+                chromeOptions.setCapability("selenoid:options", selenoidOptions);
                 return chromeOptions;
             case YANDEX:
                 ChromeOptions yandexOptions = new ChromeOptions();
                 yandexOptions.setBinary("/usr/bin/yandex-browser-beta");
                 yandexOptions.addArguments("no-sandbox");
-                yandexOptions.setCapability("screenResolution", "1280x1024x24");
+                yandexOptions.setCapability("selenoid:options", selenoidOptions);
                 return yandexOptions;
-            case OPERA:
-                OperaOptions operaOptions = new OperaOptions();
-                operaOptions.setCapability(CapabilityType.BROWSER_VERSION, PROPERTIES.getBrowserVersion());
-                operaOptions.setBinary("/usr/bin/opera");
-                operaOptions.addArguments("no-sandbox");
-                operaOptions.setCapability("screenResolution", "1280x1024x24");
-                return operaOptions;
             default:
                 DesiredCapabilities caps = new DesiredCapabilities(PROPERTIES.getBrowserName(), PROPERTIES.getBrowserVersion(), Platform.LINUX);
-                caps.setCapability("screenResolution", "1280x1024x24");
+                caps.setCapability("selenoid:options", selenoidOptions);
                 return caps;
         }
     }
