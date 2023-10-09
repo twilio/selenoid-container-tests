@@ -91,22 +91,4 @@ public class TestWindowCommands extends TestBase {
         driver.navigate().forward();
         assertThat(getPageTitle(), equalTo("second"));
     }
-
-    @Features("Screen orientation support")
-    @Ignore
-    @Test
-    public void testScreenOrientation() {
-        try {
-            WebDriver driver = getDriver();
-            if (driver instanceof Rotatable) {
-                ScreenOrientation orientation = ((Rotatable) driver).getOrientation();
-                assertThat(orientation, is(notNullValue()));
-            } else {
-                fail("This driver does not support rotation");
-            }
-        } catch (Exception e) {
-            fail("This driver does not support rotation", e);
-        }
-    }
-
 }
