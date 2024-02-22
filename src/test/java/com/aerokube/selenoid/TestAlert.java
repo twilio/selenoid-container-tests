@@ -5,7 +5,8 @@ import com.aerokube.selenoid.misc.TestBase;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
 
 public class TestAlert extends TestBase {
 
@@ -14,7 +15,7 @@ public class TestAlert extends TestBase {
         openPage(Page.ALERT);
     }
 
-    @Features("Capability to close alerts")
+    @Feature("Capability to close alerts")
     @Test
     public void testAlertClose() throws Exception {
         try {

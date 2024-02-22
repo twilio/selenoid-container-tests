@@ -9,7 +9,9 @@ import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import ru.qatools.properties.PropertyLoader;
-import ru.yandex.qatools.allure.annotations.Attachment;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Feature;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -62,7 +64,7 @@ public class WebDriverRule implements TestRule {
     private MutableCapabilities getDesiredCapabilities() {
         Map<String, Object> selenoidOptions = new HashMap<>();
         selenoidOptions.put("screenResolution", "1280x1024x24");
- 
+
         switch (PROPERTIES.getBrowserName()) {
             case CHROME:
                 ChromeOptions chromeOptions = new ChromeOptions();
