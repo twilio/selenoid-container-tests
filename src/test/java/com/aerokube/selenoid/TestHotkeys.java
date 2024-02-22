@@ -8,7 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -21,7 +22,7 @@ public class TestHotkeys extends TestBase {
         waitUntilElementIsPresent(By.cssSelector("#test-id"));
     }
 
-    @Features("Pressing keys on the keyboard")
+    @Feature("Pressing keys on the keyboard")
     @Test
     public void testHotkeys() {
         WebDriver driver = getDriver();

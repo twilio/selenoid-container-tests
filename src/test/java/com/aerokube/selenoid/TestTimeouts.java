@@ -6,11 +6,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
 
 import java.util.concurrent.TimeUnit;
 
-@Features("Setting timeout values")
+@Feature("Setting timeout values")
 public class TestTimeouts extends TestBase {
 
     @Before
@@ -19,7 +20,7 @@ public class TestTimeouts extends TestBase {
         waitUntilElementIsPresent(By.cssSelector("#test-id"));
     }
 
-    @Features("Setting page load timeout")
+    @Feature("Setting page load timeout")
     @Test
     public void testPageLoadTimeout() throws Exception {
         try {
@@ -31,7 +32,7 @@ public class TestTimeouts extends TestBase {
         }
     }
 
-    @Features("Setting implicit timeout")
+    @Feature("Setting implicit timeout")
     @Test
     public void testImplicitTimeout() throws Exception {
         try {
@@ -42,7 +43,7 @@ public class TestTimeouts extends TestBase {
         }
     }
 
-    @Features("Setting script execution timeout")
+    @Feature("Setting script execution timeout")
     @Test
     public void testScriptTimeout() throws Exception {
         try {

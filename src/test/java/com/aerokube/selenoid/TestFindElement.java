@@ -7,7 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 
-@Features("Finding element")
+@Feature("Finding element")
 public class TestFindElement extends TestBase {
 
     @Before
@@ -25,7 +26,7 @@ public class TestFindElement extends TestBase {
         waitUntilElementIsPresent(By.cssSelector("#test-id"));
     }
 
-    @Features("Finding element by CSS selector")
+    @Feature("Finding element by CSS selector")
     @Test
     public void testFindByCSSSelector() throws Exception {
         WebDriver driver = getDriver();
@@ -35,7 +36,7 @@ public class TestFindElement extends TestBase {
         assertThat(elementsByCSSSelector.get(0).getText(), equalTo("foo"));
     }
 
-    @Features("Finding element by ID")
+    @Feature("Finding element by ID")
     @Test
     public void testFindById() throws Exception {
         WebDriver driver = getDriver();
@@ -45,7 +46,7 @@ public class TestFindElement extends TestBase {
         assertThat(elementsById.get(0).getText(), equalTo("foo"));
     }
 
-    @Features("Finding element by class name")
+    @Feature("Finding element by class name")
     @Test
     public void testFindByClass() throws Exception {
         WebDriver driver = getDriver();
@@ -55,7 +56,7 @@ public class TestFindElement extends TestBase {
         assertThat(elementsByClass.get(0).getText(), equalTo("bar"));
     }
 
-    @Features("Finding element by XPath expression")
+    @Feature("Finding element by XPath expression")
     @Test
     public void testFindByXPath() throws Exception {
         WebDriver driver = getDriver();

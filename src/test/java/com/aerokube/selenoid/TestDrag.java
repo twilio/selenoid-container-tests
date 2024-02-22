@@ -8,7 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -21,7 +22,7 @@ public class TestDrag extends TestBase {
         waitUntilElementIsPresent(By.cssSelector("#custom-handle"));
     }
 
-    @Features("Drag functionality")
+    @Feature("Drag functionality")
     @Test
     public void testDrag() throws Exception {
         try {

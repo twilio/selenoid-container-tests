@@ -11,7 +11,8 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class TestProxy extends TestBase {
         }
     }
 
-    @Features("Using proxies")
+    @Feature("Using proxies")
     @Ignore
     @Test
     public void testProxy() throws Exception {

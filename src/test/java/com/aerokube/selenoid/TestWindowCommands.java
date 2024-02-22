@@ -6,7 +6,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,7 +16,7 @@ import static org.awaitility.Awaitility.await;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
-@Features("Miscellaneous window commands")
+@Feature("Miscellaneous window commands")
 public class TestWindowCommands extends TestBase {
 
     @Before
@@ -24,7 +25,7 @@ public class TestWindowCommands extends TestBase {
         waitUntilElementIsPresent(By.cssSelector("#test-id"));
     }
 
-    @Features("Closing window")
+    @Feature("Closing window")
     @Test
     public void testWindowCloseIsSupported() throws Exception {
         try {
@@ -39,7 +40,7 @@ public class TestWindowCommands extends TestBase {
         }
     }
 
-    @Features("Switching between windows")
+    @Feature("Switching between windows")
     @Test
     public void testSwitchWindows() throws Exception {
         try {
@@ -57,7 +58,7 @@ public class TestWindowCommands extends TestBase {
         }
     }
 
-    @Features("Switching between frames")
+    @Feature("Switching between frames")
     @Test
     public void testSwitchFrames() throws Exception {
         try {
@@ -79,7 +80,7 @@ public class TestWindowCommands extends TestBase {
         }
     }
 
-    @Features("Navigating back and forward")
+    @Feature("Navigating back and forward")
     @Test
     public void testBackAndForward() throws Exception {
         WebDriver driver = getDriver();

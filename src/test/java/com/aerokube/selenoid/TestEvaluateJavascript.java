@@ -8,7 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
 
 import java.util.concurrent.TimeUnit;
 
@@ -25,7 +26,7 @@ public class TestEvaluateJavascript extends TestBase {
         assertThat("Javascript execution is not supported", driver, is(instanceOf(JavascriptExecutor.class)));
     }
 
-    @Features("Synchronous Javascript evaluation")
+    @Feature("Synchronous Javascript evaluation")
     @Test
     public void testEvaluateJavascript() throws Exception {
         try {
@@ -43,7 +44,7 @@ public class TestEvaluateJavascript extends TestBase {
         }
     }
 
-    @Features("Asynchronous Javascript evaluation")
+    @Feature("Asynchronous Javascript evaluation")
     @Test
     public void testEvaluateJavascriptAsync() throws Exception {
         try {
@@ -62,7 +63,7 @@ public class TestEvaluateJavascript extends TestBase {
         }
     }
 
-    @Features("Window scrolling")
+    @Feature("Window scrolling")
     @Test
     public void testScroll() throws Exception {
         try {

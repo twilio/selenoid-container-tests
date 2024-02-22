@@ -9,8 +9,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.Augmenter;
-import ru.yandex.qatools.allure.annotations.Attachment;
-import ru.yandex.qatools.allure.annotations.Features;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Feature;
+
 import com.aerokube.selenoid.misc.Page;
 
 public class TestScreenshot extends TestBase {
@@ -21,7 +23,7 @@ public class TestScreenshot extends TestBase {
         waitUntilElementIsPresent(By.cssSelector("#test-id"));
     }
 
-    @Features("Taking screenshots")
+    @Feature("Taking screenshots")
     @Ignore
     @Test
     public void testScreenshot() throws Exception {
