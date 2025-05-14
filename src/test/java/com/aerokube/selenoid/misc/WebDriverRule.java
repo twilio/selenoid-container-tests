@@ -5,6 +5,7 @@ import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -24,6 +25,7 @@ public class WebDriverRule implements TestRule {
 
     private static final TestProperties PROPERTIES = PropertyLoader.newInstance().populate(TestProperties.class);
     private static final String CHROME = "chrome";
+    private static final String FIREFOX = "firefox";
     private static final String YANDEX = "yandex";
     private static final String OPERA = "opera";
 
@@ -77,6 +79,10 @@ public class WebDriverRule implements TestRule {
                 yandexOptions.addArguments("no-sandbox");
                 yandexOptions.setCapability("selenoid:options", selenoidOptions);
                 return yandexOptions;
+            case FIREFOX:
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setCapability("selenoid:options", selenoidOptions);
+                return firefoxOptions;
             default:
                 DesiredCapabilities caps = new DesiredCapabilities(PROPERTIES.getBrowserName(), PROPERTIES.getBrowserVersion(), Platform.LINUX);
                 caps.setCapability("selenoid:options", selenoidOptions);
